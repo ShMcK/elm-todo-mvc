@@ -1,3 +1,52 @@
+var _gdotdesign$elm_ui$View$todoFooter = function (todos) {
+	return A2(
+		_elm_lang$html$Html$footer,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('footer')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$span,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('todo-count')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('1 item left')
+					]))
+			]));
+};
+var _gdotdesign$elm_ui$View$todoHeader = A2(
+	_elm_lang$html$Html$header,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html_Attributes$class('header')
+		]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_elm_lang$html$Html$h1,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html$text('Todos')
+				]))
+		]));
+var _gdotdesign$elm_ui$View$todoInput = function (todo) {
+	return _elm_lang$html$Html$input(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('new-todo'),
+				_elm_lang$html$Html_Attributes$placeholder('What needs to be done?'),
+				_elm_lang$html$Html_Attributes$type$('text'),
+				_elm_lang$html$Html_Events$onInput(_gdotdesign$elm_ui$Update$UpdateText),
+				_elm_lang$html$Html_Attributes$value(todo)
+			]));
+};
 var _gdotdesign$elm_ui$View$todoItem = function (todo) {
 	return A2(
 		_elm_lang$html$Html$li,
@@ -5,17 +54,41 @@ var _gdotdesign$elm_ui$View$todoItem = function (todo) {
 			[]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html$text(todo),
 				A2(
-				_elm_lang$html$Html$button,
+				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Events$onClick(
-						_gdotdesign$elm_ui$Update$RemoveItem(todo))
+						_elm_lang$html$Html_Attributes$class('view')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text('X')
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('toggle'),
+								_elm_lang$html$Html_Attributes$type$('checkbox')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$label,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text(todo)
+							])),
+						A2(
+						_elm_lang$html$Html$button,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('destroy'),
+								_elm_lang$html$Html_Events$onClick(
+								_gdotdesign$elm_ui$Update$RemoveItem(todo))
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[]))
 					]))
 			]));
 };
@@ -24,44 +97,44 @@ var _gdotdesign$elm_ui$View$todoList = function (todos) {
 	return A2(
 		_elm_lang$html$Html$ul,
 		_elm_lang$core$Native_List.fromArray(
-			[]),
+			[
+				_elm_lang$html$Html_Attributes$class('todo-list')
+			]),
 		children);
 };
 var _gdotdesign$elm_ui$View$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
-			[]),
+			[
+				_elm_lang$html$Html_Attributes$class('todoapp')
+			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
+				_gdotdesign$elm_ui$View$todoHeader,
 				A2(
-				_elm_lang$html$Html$h1,
+				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text('Todo List')
+						A2(
+						_gdotdesign$elm_ui$View$todoInput,
+						model.todo,
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$button,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Events$onClick(_gdotdesign$elm_ui$Update$AddItem)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Add')
+							])),
+						_gdotdesign$elm_ui$View$todoList(model.todos)
 					])),
-				A2(
-				_elm_lang$html$Html$input,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Attributes$type$('text'),
-						_elm_lang$html$Html_Events$onInput(_gdotdesign$elm_ui$Update$UpdateText),
-						_elm_lang$html$Html_Attributes$value(model.todo)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[])),
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Events$onClick(_gdotdesign$elm_ui$Update$AddItem)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Add')
-					])),
-				_gdotdesign$elm_ui$View$todoList(model.todos)
+				_gdotdesign$elm_ui$View$todoFooter(model.todos)
 			]));
 };
