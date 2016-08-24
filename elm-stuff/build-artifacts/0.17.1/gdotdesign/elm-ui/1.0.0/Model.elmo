@@ -1,0 +1,14 @@
+var _gdotdesign$elm_ui$Model$init = {
+	todo: '',
+	todos: _elm_lang$core$Native_List.fromArray(
+		['First Item', 'Second Item'])
+};
+var _gdotdesign$elm_ui$Model$model = {
+	todo: '',
+	todos: _elm_lang$core$Native_List.fromArray(
+		[])
+};
+var _gdotdesign$elm_ui$Model$Model = F2(
+	function (a, b) {
+		return {todo: a, todos: b};
+	});

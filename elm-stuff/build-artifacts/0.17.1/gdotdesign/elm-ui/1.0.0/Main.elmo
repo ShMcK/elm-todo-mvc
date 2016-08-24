@@ -1,0 +1,4 @@
+var _gdotdesign$elm_ui$Main$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _gdotdesign$elm_ui$Model$model, view: _gdotdesign$elm_ui$View$view, update: _gdotdesign$elm_ui$Update$update})
+};

@@ -1,0 +1,13 @@
+{
+    "elm-community/elm-test": "1.1.0",
+    "elm-lang/virtual-dom": "1.1.1",
+    "elm-lang/mouse": "1.0.0",
+    "evancz/elm-http": "3.0.1",
+    "elm-community/elm-list-extra": "1.1.1",
+    "elm-lang/dom": "1.1.0",
+    "elm-lang/html": "1.1.0",
+    "ggb/numeral-elm": "1.2.1",
+    "elm-lang/svg": "1.1.1",
+    "rluiten/elm-date-extra": "5.0.1",
+    "elm-lang/core": "4.0.5"
+}

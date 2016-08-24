@@ -1,0 +1,34 @@
+var _gdotdesign$elm_ui$Update$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'UpdateText':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{todo: _p0._0});
+			case 'AddItem':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						todos: A2(_elm_lang$core$List_ops['::'], model.todo, model.todos)
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						todos: A2(
+							_elm_lang$core$List$filter,
+							function (t) {
+								return !_elm_lang$core$Native_Utils.eq(t, _p0._0);
+							},
+							model.todos)
+					});
+		}
+	});
+var _gdotdesign$elm_ui$Update$RemoveItem = function (a) {
+	return {ctor: 'RemoveItem', _0: a};
+};
+var _gdotdesign$elm_ui$Update$AddItem = {ctor: 'AddItem'};
+var _gdotdesign$elm_ui$Update$UpdateText = function (a) {
+	return {ctor: 'UpdateText', _0: a};
+};
