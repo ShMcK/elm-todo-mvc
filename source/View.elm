@@ -42,6 +42,20 @@ todoHeader =
 todoFooter todos =
   footer [ class "footer"] [
     span [ class "todo-count"] [ text "1 item left"]
+    , todoFilters
+  ]
+
+todoFilters =
+  ul [ class "filters" ]
+    [ li [] [
+      a [ href "#" ] [ text "All" ]
+    ]
+    , li [] [
+        a [ href "#" ] [ text "Active" ]
+      ]
+    , li [] [
+      a [ href "#" ] [ text "Completed"]
+    ]
   ]
 
 view : Model -> Html.Html Msg
